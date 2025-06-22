@@ -32,7 +32,7 @@ const Register = () => {
           placeholder="Name"
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border rounded"
+          className="input-field"
         />
 
         <input
@@ -41,7 +41,7 @@ const Register = () => {
           placeholder="Email"
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border rounded"
+          className="input-field"
         />
 
         <input
@@ -50,7 +50,7 @@ const Register = () => {
           placeholder="Password"
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border rounded"
+          className="input-field"
         />
 
         <button

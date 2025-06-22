@@ -36,7 +36,7 @@ const Login = () => {
           placeholder="Email"
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border rounded"
+          className="input-field"
         />
 
         <input
@@ -45,7 +45,7 @@ const Login = () => {
           placeholder="Password"
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border rounded"
+          className="input-field"
         />
 
         <button
