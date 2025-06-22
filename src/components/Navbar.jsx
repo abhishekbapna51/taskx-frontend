@@ -14,15 +14,22 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-indigo-600 text-white px-6 py-4 shadow-md flex justify-between items-center">
+    <nav className="bg-indigo-600 text-white px-6 py-4 shadow-md flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
       {/* Left: Logo + Brand */}
-      <Link to="/" className="flex items-center space-x-2">
-        <img src="/my-logo.svg" alt="Logo" className="h-8 w-8" />
-        <span className="text-xl font-bold tracking-wide">TaskX Pro</span>
-      </Link>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/my-logo.svg" alt="Logo" className="h-8 w-8" />
+          <span className="text-2xl font-bold">TaskX Pro</span>
+        </Link>
+        {user && (
+          <span className="text-sm sm:ml-4 mt-1 sm:mt-0">
+            Welcome, <span className="font-semibold">{user.name.split(" ")[0]}</span> 👋
+          </span>
+        )}
+      </div>
 
       {/* Right: Auth Buttons */}
-      <div className="flex items-center space-x-4">
+      <div className="flex flex-col sm:flex-row items-center gap-2">
         {!user ? (
           <>
             <Link
