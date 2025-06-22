@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import API from "../api/api";
 
 const Dashboard = () => {
@@ -56,8 +56,10 @@ const Dashboard = () => {
     };
 
     useEffect(() => {
-        fetchTasks();
-    }, []);
+  const run = () => fetchTasks();
+  run();
+}, [fetchTasks]);
+
 
     return (
         <div className="min-h-screen bg-gray-50">
