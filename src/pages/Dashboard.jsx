@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../api/api";
+import React, {useEffect, useState, useCallback } from "react";
 
 const Dashboard = () => {
     const [tasks, setTasks] = useState([]);
@@ -13,16 +14,17 @@ const Dashboard = () => {
 
     const token = localStorage.getItem("token");
 
-    const fetchTasks = async () => {
-        try {
-            const res = await API.get("/tasks", {
-                headers: { Authorization: token },
-            });
-            setTasks(res.data);
-        } catch (err) {
-            alert("Failed to fetch tasks");
-        }
-    };
+    const fetchTasks = useCallback(async () => {
+  try {
+    const res = await API.get("/tasks", {
+      headers: { Authorization: token },
+    });
+    setTasks(res.data);
+  } catch (err) {
+    alert("Failed to fetch tasks");
+  }
+}, [token]);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -56,9 +58,9 @@ const Dashboard = () => {
     };
 
     useEffect(() => {
-  const run = () => fetchTasks();
-  run();
+  fetchTasks();
 }, [fetchTasks]);
+
 
 
     return (
